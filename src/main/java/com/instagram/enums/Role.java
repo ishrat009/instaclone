@@ -1,0 +1,5 @@
+package com.instagram.enums;
+
+public enum Role {
+ROLE_USER, ROLE_ADMIN,ROLE_TEAM_MGR,ROLE_TEAM_COACH,ROLE_TEAM_CAPTAIN,ROLE_PLAYER
+}
