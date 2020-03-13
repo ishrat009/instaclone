@@ -1,17 +1,16 @@
 package com.instagram.service;
 
-import com.instagram.config.persistence.HibernateConfig;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.instagram.config.persistence.HibernateConfig;
 
 @Service
+@Transactional
 public class ProfileService {
+	private HibernateConfig hibernateConfig;
 
-    private final HibernateConfig hibernateConfig;
-
-    @Autowired
-    public ProfileService(HibernateConfig hibernateConfig) {
-        this.hibernateConfig = hibernateConfig;
-    }
-
-}  // End of Class
+	public ProfileService(HibernateConfig hibernateConfig) {
+		this.hibernateConfig = hibernateConfig;
+	}
+}

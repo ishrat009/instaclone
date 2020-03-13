@@ -2,53 +2,68 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="ta" uri="https://github.com/dernasherbrezon/jtimeago"%>
 <!-- GLOBAL HEADER -->
 <jsp:include page="../common/header.jsp" />
 
 <!-- Main content -->
 <section class="content">
-	<div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Show All Images</h3>
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 300px;">
-                <table class="table table-head-fixed text-nowrap">
-                  <thead>
-                    <tr>
-                     <th style="width: 30px;">Id</th>
-					<th style="width: 100px;">Image</th>
-					<th style="width: 100px;">Name</th>
-					<th style="width: 10px;">Edit</th>
-					<th style="width: 10px;">Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-						<c:forEach items="${all_test }" var="test">
-							<tr>
-								<td style="width: 30px;">${ test.id }</td>
-								<td style="width: 100px;"><img class="img-responsive" style="width: 100px;"
-									src="${pageContext.request.contextPath }/img/${test.logo}"></td>
-								<td style="width: 100px;">${ test.name }</td>
-								<td style="width: 10px;"><a href="edit?id=${ test.id }">Edit</a></td>
-								<td style="width: 10px;"><a href="delete?id=${ test.id }">Delete</a></td>
-							</tr>
-						</c:forEach>                            
-                  </tbody>
-                </table>
-              </div>
-     </div>
+
+
+	<c:forEach items="${all_post }" var="post">
+		<div class="post">
+			<div class="user-block">
+				<img class="img-circle img-bordered-sm"
+					src="../../dist/img/user6-128x128.jpg"> <span
+					class="username"> <a href="#">${post.userName}</a> <a
+					href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+				</span> <span class="description">Posted a photo - 5 days ago</span>
+			</div>
+			<!-- /.user-block -->
+			<div class="row mb-3">
+				<div class="col-12">
+					<div class="col-sm-4">
+						<p>Caption: ${ post.name }</p>
+						<p>Location: ${ post.location }</p>
+					</div>
+					<div class="col-sm-8">
+						<img class="img-responsive" style="width: 600px;"
+							src="${pageContext.request.contextPath }${post.logo}">
+					</div>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+
+			<p>
+				<a href="#" class="link-black text-sm mr-2"><i
+					class="fas fa-share mr-1"></i> Share</a> <a href="#"
+					class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i>
+					Like</a> <span class="float-right"> <a href="#"
+					class="link-black text-sm"> <i class="far fa-comments mr-1"></i>
+						Comments (5)
+				</a>
+				</span>
+			</p>
+			
+			<!-- ... end Comments -->
+			<!-- Comment Form  -->
+			<form action="${pageContext.request.contextPath }/post/addComment"
+				method="POST">
+				<input name="postId" value="${post.id}" hidden="hidden" /> <input
+					name="commentContent" type="text" placeholder="Type a comment" />
+				<button type="submit">Send</button>
+
+
+			</form>
+			
+		</div>
+	</c:forEach>
+	<!-- /.card-body -->
 </section>
 </div>
+
 <!-- GLOBAL FOOTER -->
 <jsp:include page="../common/footer.jsp" />
 

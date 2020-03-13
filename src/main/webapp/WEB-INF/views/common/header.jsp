@@ -52,8 +52,11 @@
         <a href="${pageContext.request.contextPath }/index" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="${pageContext.request.contextPath }/test/add" class="nav-link">Image</a>
-      </li>   
+        <a href="${pageContext.request.contextPath }/test/add" class="nav-link">Add Post</a>
+      </li>  
+       <li class="nav-item d-none d-sm-inline-block">
+        <a href="${pageContext.request.contextPath }/profile" class="nav-link">Profile</a>
+      </li> 
       <li class="nav-item d-none d-sm-inline-block">
         <a href="${pageContext.request.contextPath }/logout" class="nav-link">Logout</a>
       </li>   
@@ -170,7 +173,7 @@
           
         </div>
         <div class="info">
-          <a href="#" class="d-block">USER NAME</a>
+          <a href="${pageContext.request.contextPath}/profile/edit" class="d-block">${username} </a>
         </div>
       </div>
 

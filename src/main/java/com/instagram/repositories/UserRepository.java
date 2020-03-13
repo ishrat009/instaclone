@@ -11,8 +11,6 @@ import com.instagram.model.User;
 @Transactional
 public interface UserRepository extends JpaRepository<User, Long>{
 	 Optional<User> findByUsername(String username);
-
-		User findByusername(String username);
+		User findByusername(String name);
 		User findByEmail(String email);
-
-} // End of Class
+}

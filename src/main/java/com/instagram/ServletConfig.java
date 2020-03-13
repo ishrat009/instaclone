@@ -8,6 +8,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.instagram.util.Constants;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = {"com.instagram.controllers"})
@@ -22,8 +24,8 @@ public class ServletConfig implements WebMvcConfigurer{
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
 		// Register resource handler for -
-		// IMAGES
-				registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/resources/img/");
+		//uploded IMAGES
+				registry.addResourceHandler("/img/**").addResourceLocations("file:///"+Constants.UPLOADED_FOLDER);
 
 		// IMAGES
 		registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/resources/images/");

@@ -1,7 +1,7 @@
 package com.instagram.request_models;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+
 public class User implements Serializable {
 	private String username;
 	private String password;
@@ -10,6 +10,7 @@ public class User implements Serializable {
 	private String gender;
 	private String dob;
 	private String role;
+	private String profilePic;
 	private Boolean activeStatus;
 	public String getUsername() {
 		return username;
@@ -53,11 +54,18 @@ public class User implements Serializable {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	public String getProfilePic() {
+		return profilePic;
+	}
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
 	public Boolean getActiveStatus() {
 		return activeStatus;
 	}
 	public void setActiveStatus(Boolean activeStatus) {
 		this.activeStatus = activeStatus;
 	}
+	
 	
 }

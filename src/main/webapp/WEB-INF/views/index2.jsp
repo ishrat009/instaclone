@@ -1,94 +1,62 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!-- GLOBAL HEADER -->
 <jsp:include page="common/header.jsp" />
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
+<!-- Main content -->
+<section class="content">
 
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+	<c:forEach items="${all_post }" var="post">
+		<div class="post">
+			<div class="user-block">
+				<img class="img-circle img-bordered-sm"
+					src="../../dist/img/user6-128x128.jpg"> <span
+					class="username"> <a href="#">${post.userName}</a> <a
+					href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+				</span> <span class="description">Posted a photo - 5 days ago</span>
+			</div>
+			<!-- /.user-block -->
+			<div class="row mb-3">
+				<div class="col-12">
+					<div class="col-sm-4">
+						<p>Caption: ${ post.name }</p>
+						<p>Location: ${ post.location }</p>
+					</div>
+					<div class="col-sm-8">
+						<img class="img-responsive" style="width: 600px;"
+							src="${pageContext.request.contextPath }${post.logo}">
+					</div>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
+			<p>
+				<a href="#" class="link-black text-sm mr-2"><i
+					class="fas fa-share mr-1"></i> Share</a> <a href="#"
+					class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i>
+					Like</a> <span class="float-right"> <a href="#"
+					class="link-black text-sm"> <i class="far fa-comments mr-1"></i>
+						Comments (5)
+				</a>
+				</span>
+			</p>
 
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
+			<input class="form-control form-control-sm" type="text"
+				placeholder="Type a comment">
+		</div>
+	</c:forEach>
+	<!-- /.card-body -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 
-          </section>
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  
 
 
 <!-- GLOBAL FOOTER -->
 <jsp:include page="common/footer.jsp" />
-  
+

@@ -12,7 +12,7 @@ public class UserDto implements Serializable {
 	private LocalDate dob;
 	private String role;
 	private Boolean activeStatus;
-	
+	private String profilePic;
 	public String getUsername() {
 		return username;
 	}
@@ -61,5 +61,10 @@ public class UserDto implements Serializable {
 	public void setActiveStatus(Boolean activeStatus) {
 		this.activeStatus = activeStatus;
 	}
-	
+	public String getProfilePic() {
+		return profilePic;
+	}
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
 }

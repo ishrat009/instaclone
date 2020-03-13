@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +31,7 @@
         <div class="card-body register-card-body">
             <p class="login-box-msg">Register a new membership</p>
 
-            <form action="${pageContext.request.contextPath }/register" modelAttribute="user" method="POST>
+            <form action="${pageContext.request.contextPath }/register" modelAttribute="user" method="POST">
                 <div class="input-group mb-3">
                     <input path="fullName" name="fullName" type="text" class="form-control" placeholder="Full name">
                     <div class="input-group-append">
